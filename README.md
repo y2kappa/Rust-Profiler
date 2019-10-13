@@ -21,9 +21,13 @@ g++ -o usage.tsk usage.cpp --std=c++14 -O3
 cargo build
 ```
 
-## TODO:
-- add a recurring profiling log appear eveyr 5 minutes ot help with logging and make it configurable
-- make sure the numbers are right
+## TODO
+
+- [ ] add a configurable recurring task to log usage
+- [x] confirm correctness (called into c file and numbers match)
+- [ ] test on Linux
+- [ ] standardise the usage of external c lib building though cargo
+- [ ] make it a lib
 
 
 ## Example Outputs
@@ -204,3 +208,8 @@ real	0m0.603s
 user	0m0.487s
 sys	0m0.622s
 ```
+
+
+## References
+
+- https://doc.rust-lang.org/nomicon/ffi.html
