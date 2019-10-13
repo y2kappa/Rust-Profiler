@@ -11,13 +11,14 @@ Attempting a util that gives you the information of the current process. That me
 ## Build
 
 ```sh
-g++ -o usage.tsk usage.cpp --std=c++14
+gcc -shared -o libmem.a mem.c
+g++ -o usage.tsk usage.cpp -L . -l mem --std=c++14
 cargo build
 ```
 
 Optimized build (Set Cargo.toml to opt-level=3)
 ```
-g++ -o usage.tsk usage.cpp --std=c++14 -O3
+g++ -o usage.tsk usage.cpp -L . -l mem --std=c++14 -O
 cargo build
 ```
 
