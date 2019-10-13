@@ -10,6 +10,15 @@ use chrono::{Datelike, Timelike, Utc};
 use std::fs::File;
 use std::io::Read;
 
+extern crate libc;
+use libc::size_t;
+
+// #[link_args = "-L ../ -llibmem"]
+#[link(name = "mem")]
+extern {
+    fn getCurrentRSS() -> size_t;
+}
+
 fn main() {
 
 
@@ -18,6 +27,8 @@ fn main() {
     let pid = process::id() as i32;
     let mut count = 0;
     let mut config_data = String::new();
+
+
 
     loop {
 
@@ -44,13 +55,17 @@ fn main() {
         );
 
         let pinfo : &sysinfo::Process = sys.get_process(pid).unwrap();
-        println!("[{}] {} pid={} | Name={} | CpuUsage={:.5}% | MemUsage={}MB",
+
+        let rss : size_t = unsafe { getCurrentRSS() };
+
+        println!("[{}] {} pid={} | Name={} | CpuUsage={:.5}% | MemUsage={}MB | MemUsageC={}MB",
             time,
             count,
             pinfo.pid(),
             pinfo.name(),
             pinfo.cpu_usage(),
-            pinfo.memory() / 1024);
+            (pinfo.memory() as f32) / 1024.0,
+            (rss as f32) / 1024.0 / 1024.0);
 
         // To refresh all system information:
         // sys.refresh_all();

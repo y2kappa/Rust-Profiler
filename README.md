@@ -22,11 +22,11 @@ cargo build
 ```
 
 ## TODO:
-    - add a recurring profiling log appear eveyr 5 minutes ot help with logging and make it configurable
-    - make sure the numbers are right
+- add a recurring profiling log appear eveyr 5 minutes ot help with logging and make it configurable
+- make sure the numbers are right
 
 
-## Outputs
+## Example Outputs
 
 ### Memory
 
@@ -40,7 +40,7 @@ with memory usage, nicer to the kernel. However it seems like C++ asks for more 
     [Sun Oct 13 12:05:24 2019] 2 pid=87186 rss=0.875MB
     [Sun Oct 13 12:05:29 2019] 3 pid=87186 rss=0.886719MB
     [Sun Oct 13 12:05:34 2019] 4 pid=87186 rss=0.886719MB
-    [Sun Oct 13 12:05:42 2019] 5 pid=87186 rss=263.387MB     // << read 30 mb
+    [Sun Oct 13 12:05:42 2019] 5 pid=87186 rss=263.387MB     // << read 30 mb (why!!)
     [Sun Oct 13 12:05:47 2019] 6 pid=87186 rss=263.387MB
     [Sun Oct 13 12:05:52 2019] 7 pid=87186 rss=263.387MB
     [Sun Oct 13 12:05:57 2019] 8 pid=87186 rss=263.402MB
