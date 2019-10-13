@@ -19,16 +19,16 @@ fn main() {
 
     loop {
 
-        let mut sys = System::new();
-        sys.refresh_all();
         count += 1;
-
         if count % 5 == 0 {
             let mut config_file = File::open("src/data.txt").unwrap();
             let mut new_data = String::new();
             config_file.read_to_string(&mut new_data).unwrap();
-            // config_data = config_data + &new_data;
+            config_data = config_data + &new_data;
         }
+
+        let mut sys = System::new();
+        sys.refresh_all();
 
         let now = Utc::now();
 
