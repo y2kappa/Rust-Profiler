@@ -9,3 +9,6 @@ edition = "2018"
 [dependencies]
 sysinfo = "0.9.5"
 chrono = "*"
+
+[profile.dev]
+opt-level = 3

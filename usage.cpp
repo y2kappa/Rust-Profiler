@@ -182,7 +182,12 @@ int main () {
             << " rss=" << float(getCurrentRSS()) / 1024 / 1024
             << "MB " << std::endl;
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+        if (count > 31)
+        {
+            break;
+        }
     }
 
     return 0;

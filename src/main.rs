@@ -13,6 +13,8 @@ use std::io::Read;
 fn main() {
 
 
+    let mut sys = System::new();
+
     let pid = process::id() as i32;
     let mut count = 0;
     let mut config_data = String::new();
@@ -27,7 +29,7 @@ fn main() {
             config_data = config_data + &new_data;
         }
 
-        let mut sys = System::new();
+
         sys.refresh_all();
 
         let now = Utc::now();
@@ -54,7 +56,10 @@ fn main() {
         // sys.refresh_all();
         // sys.reset();
 
-        thread::sleep(time::Duration::from_millis(5000));
+        // thread::sleep(time::Duration::from_millis(5000));
+        if count > 31 {
+            break;
+        }
     }
 
 
